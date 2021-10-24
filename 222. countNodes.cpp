@@ -9,6 +9,7 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+//sol 1
 class Solution {
 public:
     int count = 0;
@@ -26,6 +27,21 @@ public:
         helper(root->right);
     }
 };
+
+/**
+sol 2.
+ */
+class Solution {
+public:
+    
+    int countNodes(TreeNode* root) {
+        if(!root) return 0;
+        return countNodes(root->right) +countNodes(root->left) +1  ;
+    }
+
+};
+
+
 /*
 Given the root of a complete binary tree, return the number of the nodes in the tree.
 
