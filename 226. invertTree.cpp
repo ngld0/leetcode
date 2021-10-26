@@ -27,7 +27,25 @@ public:
         
     }
 };
+//OR 
 
+```
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        if(!root) return NULL;
+        //exchange left and right child
+        TreeNode* x=root->left;
+        root->left=root->right;
+        root->right=x;
+        //invert left and right child's subtrees
+        invertTree(root->left);
+        invertTree(root->right);
+        //return root
+        return root;
+    }
+};
+```
 //Iterative
 //BFS
 ```
