@@ -9,6 +9,7 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+//recursive
 class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
@@ -26,6 +27,59 @@ public:
         
     }
 };
+
+//Iterative
+//BFS
+```
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        if(root==NULL)
+            return root;
+        else{
+            queue<TreeNode*>q;
+            q.push(root);
+            while(!q.empty()){
+                TreeNode* tmp=q.front();
+                q.pop();
+                swap(tmp->left, tmp->right);
+                if(tmp->left)
+                    q.push(tmp->left);
+                if(tmp->right)
+                    q.push(tmp->right);
+            }
+        }
+        return root;
+    }
+};
+```
+
+//DFS
+```
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        if(root==NULL)
+            return root;
+        else{
+            stack<TreeNode*>s;
+            s.push(root);
+            while(!s.empty()){
+                TreeNode* tmp=s.top();
+                s.pop();
+                swap(tmp->left, tmp->right);
+                if(tmp->left)
+                    s.push(tmp->left);
+                if(tmp->right)
+                    s.push(tmp->right);
+            }
+        }
+        return root;
+    }
+};
+```
+
+
 /***
 // 
 Given the root of a binary tree, invert the tree, and return its root.
