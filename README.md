@@ -1,3 +1,4 @@
+# Daily Leetcode. I will explain each solutions when I have time!!!
 # Daily Leetcode
 ## 1. Fast I/O for Competitive Programing (C++)
 ``` 
