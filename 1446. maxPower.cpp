@@ -1,3 +1,22 @@
+//sol 1. One loop
+class Solution {
+public:
+    int maxPower(string s) { 
+        int count=1, res=1, prev=s[0];
+        for(int i=1; i<s.size(); i++){
+            if(s[i]==prev){
+                count++;
+                res= max(res, count);
+            }
+            else{
+                count=1;
+                prev=s[i];
+            }
+        }
+        return res;
+    }
+};
+//sol 2.
 class Solution {
 public:
     int maxPower(string s) { 
