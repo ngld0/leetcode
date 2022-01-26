@@ -14,8 +14,8 @@ public:
     
     vector<int> getAllElements(TreeNode* root1, TreeNode* root2) {
         vector<int> vec_r1, vec_r2;
-        if (root1) dfs(root1, vec_r1);
-        if (root2) dfs(root2, vec_r2);
+        if (root1) inorder(root1, vec_r1);
+        if (root2) inorder(root2, vec_r2);
         int pos1 = 0, pos2 = 0;
         for(int i = 0 ; i < vec_r2.size();i++){
             vec_r1.push_back(vec_r2[i]);
@@ -24,11 +24,19 @@ public:
         return vec_r1;
     }
     
-    void dfs(TreeNode* root, vector<int>& ret)
+    //inorder left - root- right
+    //postorder left-right-root
+    //preorder root-left-right
+    
+    void inorder(TreeNode* root, vector<int>& ret)
     {
-        if (root->left) dfs(root->left, ret);
+        if(root == nullptr) return;
+        //first left child
+        if (root->left) inorder(root->left, ret);
+        // getroot
         ret.push_back(root->val);
-        if (root->right) dfs(root->right, ret);
+        //run to right child
+        if (root->right) inorder(root->right, ret);
     }
 };
 /*
