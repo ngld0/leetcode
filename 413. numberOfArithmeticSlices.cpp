@@ -9,8 +9,6 @@ public:
             }
             else 
                 nAr = 0;
-            
-            
         }
         return res;
     }
