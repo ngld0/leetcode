@@ -17,6 +17,33 @@ public:
         }
         return sign * ans;
     }
+    /*
+    // sol 20220530
+    int divide(int dividend, int divisor) {
+        int res=0;
+        if(dividend == INT_MIN && divisor == -1) 
+            return INT_MAX;
+        if(dividend == INT_MIN && divisor == 1) 
+            return INT_MIN;
+        
+        long int divd = abs(dividend), divr = abs(divisor);
+        
+        while(divr<=divd) {
+            long int mul = divr, tmp=1;
+            while(mul <= divd - mul) {
+                mul += mul;
+                tmp += tmp;
+            }
+            res += tmp;
+            divd -= mul;
+        }
+        
+        if((dividend <0 && divisor>0) || (dividend >0 && divisor<0)) 
+            return -res;
+        
+        return res;
+    }
+    */
 };
 /*
 The key observation is that the quotient of a division is just the number of times that we can subtract the divisor from the dividend without making it negative.
