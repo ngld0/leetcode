@@ -30,3 +30,32 @@ public:
         
     }
 };
+/* // sol-2
+class Solution {
+public:
+string removeDigit(string number, char digit) {
+    string res="";
+    int n = number.length();
+    int cnt = 0;
+    // count the appear time of digit
+    for(int i = 0 ; i < n; i++){
+        if(number[i] == digit) cnt++;
+    }
+    bool ok = false;
+    for(int i=0;i<n;i++){
+        
+        if(number[i] != digit || ok == true){
+            res+=number[i];
+        } else
+        
+        if(cnt > 1 && number[i] == digit && i+1 < n && number[i + 1] <= number[i] ){
+            res+=number[i];
+            cnt--;
+        }else if(number[i] == digit)
+            ok =true;
+        cout<< res <<endl;
+    }
+    return res;
+    }
+};
+*/
