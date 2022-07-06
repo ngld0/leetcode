@@ -11,6 +11,7 @@
  */
 class Solution {
 public:
+    //find min
     int minDepth(TreeNode* root) {
         if(root == nullptr) return 0;
         int d1 = minDepth(root->left);
@@ -20,5 +21,18 @@ public:
         if(root->right == nullptr) 
             return 1+d1;
         return 1+min(d1,d2);
+    }
+    //find max
+    int maxDepth(TreeNode* root){
+        if(root == nullptr) return 0;
+        int dleft= maxDepth(root->left);
+        int dright= maxDepth(root->right);
+        if(root->left == nullptr) 
+            return 1+dright;
+        if(root->right == nullptr) 
+            return 1 + dleft;
+        
+        return 1+max(dleft, dright);
+        
     }
 };
