@@ -10,10 +10,10 @@ public:
         //cause of time space O(n)
         while(left <= right)
         {
-            if(abs(nums[left]) < abs(nums[right])) { // the right most is greater
+            if(abs(nums[left]) < abs(nums[right])) { // the right most is greater if square
                 res[cur--] = nums[right] * nums[right]; // square of current nums[i]
                 right--;
-            } else{ // incase left most is greater
+            } else{ // incase left most is greater if square 
                 res[cur--] = nums[left] * nums[left]; 
                 left++;
             }
