@@ -10,31 +10,37 @@
  */
 class Solution {
 public:
+    void printn(ListNode* head){
+        while(head != nullptr){
+            cout<<head->val;
+            head = head->next;
+        }
+        cout<<endl;
+    }
     ListNode* reverseBetween(ListNode* head, int left, int right) {
         ListNode dummy(0);
         dummy.next = head;
 
-        ListNode* cur = &dummy;
+        ListNode* h = &dummy;
         
         for (int i = 1; i <left;i++) 
         {
-            cur = cur->next;
+            h = h->next;
         }
+
+        ListNode* pre = h->next;
         
-        ListNode* q = cur->next;
-        
-        ListNode* r = q->next;
+        ListNode* cur = pre->next;
         
         for (int i =0 ; i <right -left;i++){
-            ListNode* t = r->next; //temporary node to save the node after swap; the saving node are after r node
-            r->next = q; // swap q and r node
-            q = r; // using to swap q and r
-            r = t; // set back the node after swap
+            ListNode* nex = cur->next; //temporary node to save the node after swap; the saving node are after r node
+            //cout << q->val << r->val <<t->val <<endl;
+            cur->next = pre; // swap q and r node
+            pre = cur; // using to swap q and r
+            cur = nex; // set back the node after swap
         }
-
-        cur->next->next = r; // set the last node after reverse
-        cur->next = q;
-
+        h->next->next = cur; // set the last node after reverse
+        h->next = pre;
         return dummy.next;
     }
 };
