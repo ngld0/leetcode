@@ -31,7 +31,7 @@ public:
         ListNode* pre = h->next;
         
         ListNode* cur = pre->next;
-        
+        // reversing the nodes in range left-right
         for (int i =0 ; i <right -left;i++){
             ListNode* nex = cur->next; //temporary node to save the node after swap; the saving node are after r node
             //cout << q->val << r->val <<t->val <<endl;
@@ -39,6 +39,7 @@ public:
             pre = cur; // 
             cur = nex; // set back the node after swap
         }
+        // after reversing, set the reversed sub list nodes to the parent listnode
         h->next->next = cur; // set the last node after reverse
         h->next = pre;
         return dummy.next;
