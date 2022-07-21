@@ -35,8 +35,8 @@ public:
         for (int i =0 ; i <right -left;i++){
             ListNode* nex = cur->next; //temporary node to save the node after swap; the saving node are after r node
             //cout << q->val << r->val <<t->val <<endl;
-            cur->next = pre; // swap q and r node
-            pre = cur; // using to swap q and r
+            cur->next = pre; // reversing the direction
+            pre = cur; // 
             cur = nex; // set back the node after swap
         }
         h->next->next = cur; // set the last node after reverse
